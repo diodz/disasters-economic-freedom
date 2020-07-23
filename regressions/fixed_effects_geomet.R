@@ -70,8 +70,18 @@ GeoMet_panel$L.sound <- lag(GeoMet_panel$sound, 1)
 GeoMet_panel$L.freedom_trade <- lag(GeoMet_panel$freedom_trade, 1)
 GeoMet_panel$L.regulation <- lag(GeoMet_panel$regulation, 1)
 
+columns <- c('D.lcgdp', 'indexla', 'L.ECI_interpol', 'L.lcgdp', 'L.lpop',
+             'L.polity', 'L.open', 'L.interest', 'L.credit', 'L.gross', 'L.fdi',
+             'L.lcpi', 'L.balance', 'year', 'L.size_gov', 'L.property_rights',
+             'L.sound', 'L.freedom_trade', 'L.regulation')
+
+GeoMet_panel <- GeoMet_panel[c(columns, 'country')]
+for (col in columns){
+  GeoMet_panel[[col]] <- as.numeric(GeoMet_panel[[col]])
+}
+
 #----------------------------------------------
-# Regression Felbermayr and adds ECI
+# Fixed effects regression with ECI
 # (Table: 1)
 #----------------------------------------------
 fixed <- plm(D.lcgdp ~ indexla+L.ECI_interpol+L.lcgdp+L.lpop+L.polity+L.open+
@@ -80,9 +90,9 @@ fixed <- plm(D.lcgdp ~ indexla+L.ECI_interpol+L.lcgdp+L.lpop+L.polity+L.open+
 
 summary(fixed)
 reg <- tidy(fixed)
-summary(fixed, robust=TRUE)
+print(summary(fixed, robust=TRUE))
 #----------------------------------------------
-# Regression Felbermayr and adds ECI subindexes
+# Fixed effects regression with ECI subindexes
 # (Table: 1)
 #----------------------------------------------
 fixed <- plm(D.lcgdp ~ indexla+L.size_gov+L.property_rights+L.sound+
@@ -91,7 +101,7 @@ fixed <- plm(D.lcgdp ~ indexla+L.size_gov+L.property_rights+L.sound+
              data=GeoMet_panel, index=c("country", "year"), model="within")
 summary(fixed)
 reg2 <- tidy(fixed)
-summary(fixed, robust=TRUE)
+print(summary(fixed, robust=TRUE))
 
 
 
