@@ -1,4 +1,4 @@
-## Code for the article: The Impact of Institutions in the Aftermath of Natural Disasters
+## Replication code for: The Impact of Institutions in the Aftermath of Natural Disasters
 
 GeoMet data comes from: 
 
