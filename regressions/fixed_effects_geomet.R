@@ -97,7 +97,7 @@ print(summary(fixed, robust=TRUE))
 #----------------------------------------------
 fixed <- plm(D.lcgdp ~ indexla+L.size_gov+L.property_rights+L.sound+
              L.freedom_to_trade+L.regulation+L.lcgdp+L.lpop+L.polity+L.open+
-             L.interest+L.credit+L.gross+L.fdi+L.balance+factor(year),
+             L.interest+L.credit+L.gross+L.fdi++L.lcpi+L.balance+factor(year),
              data=GeoMet_panel, index=c("country", "year"), model="within")
 summary(fixed)
 reg2 <- tidy(fixed)
@@ -109,7 +109,7 @@ print(summary(fixed, robust=TRUE))
 #----------------------------------------------
 fixed <- plm(D.lcgdp ~ indexla+year+L.size_gov+L.property_rights+L.sound+
                  L.freedom_to_trade+L.regulation+L.lcgdp+L.lpop+L.polity+L.open+
-                 L.interest+L.credit+L.gross+L.fdi+L.balance+factor(year),
+                 L.interest+L.credit+L.gross+L.fdi+L.lcpi+L.balance+factor(year),
              data=GeoMet_panel, index=c("country", "year"), model="within")
 summary(fixed)
 reg2 <- tidy(fixed)
