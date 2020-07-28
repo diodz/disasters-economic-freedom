@@ -1,6 +1,4 @@
-# disasters
-
-Code for disasters projects, regressions and synthetic controls
+## Code for the article: The Impact of Institutions in the Aftermath of Natural Disasters
 
 GeoMet data comes from: 
 
