@@ -10,4 +10,4 @@ geomet_ECindex <- read.csv("data/econ_freedom_and_geomet.csv")
 geomet_ECindex <- as.data.frame(geomet_ECindex)
 table1_vars <- geomet_ECindex[columns]
 
-stat.desc(table1_vars, basic = FALSE)
+print(stat.desc(table1_vars, basic = FALSE))
