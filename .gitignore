@@ -7,3 +7,4 @@ data/~$geomet_ECindex.xlsx
 *.stats
 *.docx
 *.xlsx
+.history/
