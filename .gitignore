@@ -8,3 +8,4 @@ data/~$geomet_ECindex.xlsx
 *.docx
 *.xlsx
 .history/
+venv/
